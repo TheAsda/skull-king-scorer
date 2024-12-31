@@ -1,0 +1,11 @@
+.winner {
+  padding: var(--size-4);
+}
+
+#winner-name {
+  text-align: center;
+}
+
+table {
+  width: 100%;
+}

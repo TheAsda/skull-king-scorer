@@ -1,0 +1,31 @@
+body {
+  display: flex;
+  flex-direction: column;
+  height: 100dvh;
+}
+
+main {
+  height: 100%;
+  flex-grow: 1;
+}
+
+.vertical-stack {
+  display: flex;
+  flex-direction: column;
+  gap: var(--size-2);
+}
+
+.vertical-stack--center {
+  align-items: center;
+  justify-content: center;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--size-1);
+}
+
+.full-height {
+  height: 100%;
+}

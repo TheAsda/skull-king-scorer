@@ -1,0 +1,6 @@
+{
+  "javascript.preferences.importModuleSpecifierEnding": "js",
+  "liveServer.settings.root": "/src",
+  "liveServer.settings.file": "index.html",
+  "liveServer.settings.ignoreFiles": ["**/pages/**.html"]
+}
