@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <a id="base-url" href="{{ site.baseurl }}"></a>
     <script>
-      console.log("{{ site.baseurl }}");
+      const baseUrl = document.querySelector('#base-url').href;
+      console.log(baseUrl)
       // window.location.replace(`/?url=${location.pathname}`);
     </script>
   </head>
