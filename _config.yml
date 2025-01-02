@@ -3,6 +3,7 @@ safe: true
 source: .
 incremental: false
 highlighter: rouge
+baseurl: /skull-king-scorer
 gist:
   noscript: false
 kramdown:
