@@ -1,3 +1,5 @@
+import { URLSearchParams } from 'url';
+
 async function loadPage(path) {
   if (path === '/') {
     path = '/index';
@@ -27,6 +29,10 @@ async function loadPage(path) {
 
 class Router {
   constructor() {
+    const params = new URLSearchParams(location.search);
+    if (params.has('url')) {
+      history.replaceState(null, null, params.get('url'));
+    }
     this.main = document.querySelector('main');
     this.mountPage();
     document.addEventListener('click', (e) => {
