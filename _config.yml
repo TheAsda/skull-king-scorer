@@ -1,7 +1,3 @@
 baseurl: '/skull-king-scorer'
 url: 'https://theasda.github.io'
-defaults:
-  - scope:
-      path: 'src'
-    values:
-      layout: null
+source: src
