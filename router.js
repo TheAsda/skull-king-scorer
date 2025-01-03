@@ -1,5 +1,3 @@
-import { URLSearchParams } from 'url';
-
 async function loadPage(path) {
   if (path === '/') {
     path = '/index';
