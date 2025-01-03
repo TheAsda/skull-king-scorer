@@ -1,4 +1,4 @@
-const basePath = location.pathname.split('/')[1];
+const basePath = '/' + location.pathname.split('/')[1];
 
 async function loadPage(path) {
   if (path === '/') {
