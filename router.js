@@ -1,3 +1,5 @@
+const basePath = location.pathname.split('/')[1];
+
 async function loadPage(path) {
   if (path === '/') {
     path = '/index';
@@ -25,7 +27,6 @@ async function loadPage(path) {
   }
 }
 
-const basePath = location.pathname.split('/')[1];
 class Router {
   constructor() {
     const params = new URLSearchParams(location.search);
