@@ -2,5 +2,6 @@ baseurl: '/skull-king-scorer'
 url: 'https://theasda.github.io'
 source: src
 include:
-  - '404.html'
+  - '*.html'
   - '*.js'
+  - '*.css'
