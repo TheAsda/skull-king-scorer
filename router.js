@@ -1,13 +1,11 @@
 const basePath = '/' + location.pathname.split('/')[1];
 
 async function loadPage(path) {
+  path = path.replace(basePath, '');
   if (path === '/') {
     path = '/index';
   }
-  if(path.endsWith('/')) {
-    path = path.slice(0, -1);
-  }
-  const pagePath = '/pages' + path;
+  const pagePath = basePath + '/pages' + path;
   try {
     const html = await fetch(pagePath + '/page.html').then((response) =>
       response.text()
