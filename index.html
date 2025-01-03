@@ -1,13 +1,22 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
-    <a id="base-url" href="{{ '/assets/style.css' | relative_url }}"></a>
-    <script>
-      const baseUrl = document.querySelector('#base-url').href;
-      console.log(baseUrl);
-      console.log("{{ '/assets/style.css' | relative_url }}");
-      // window.location.replace(`/?url=${location.pathname}`);
-    </script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Skull King Scorer</title>
+    <link rel="stylesheet" href="https://unpkg.com/open-props" />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/open-props/normalize.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/open-props/buttons.min.css"
+    />
+    <link rel="stylesheet" href="./styles.css" />
   </head>
-  <body></body>
+  <body>
+    <main></main>
+    <script type="module" src="./router.js"></script>
+  </body>
 </html>

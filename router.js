@@ -29,9 +29,10 @@ async function loadPage(path) {
 
 class Router {
   constructor() {
+    this.basePath = location.pathname.split('/')[1];
     const params = new URLSearchParams(location.search);
     if (params.has('url')) {
-      history.replaceState(null, null, params.get('url'));
+      history.replaceState(null, null, this.basePath + '/' + params.get('url'));
     }
     this.main = document.querySelector('main');
     this.mountPage();
@@ -46,7 +47,7 @@ class Router {
   }
 
   async navigate(path) {
-    history.pushState(null, null, path);
+    history.pushState(null, null, this.basePath + path);
     await this.mountPage();
   }
 
