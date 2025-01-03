@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <a id="base-url" href="{{ site.baseurl }}"></a>
+    <a id="base-url" href="{{ '/assets/style.css' | relative_url }}"></a>
     <script>
       const baseUrl = document.querySelector('#base-url').href;
       console.log(baseUrl);
-      console.log('{{ site.baseurl }}');
+      console.log("{{ '/assets/style.css' | relative_url }}");
       // window.location.replace(`/?url=${location.pathname}`);
     </script>
   </head>
