@@ -4,9 +4,9 @@ async function loadPage(path) {
   if (path === '/') {
     path = '/index';
   }
-  const basePath = basePath + '/pages' + path;
+  const pagePath = basePath + '/pages' + path;
   try {
-    const html = await fetch(basePath + '/page.html').then((response) =>
+    const html = await fetch(pagePath + '/page.html').then((response) =>
       response.text()
     );
     const element = document.createElement('template');
@@ -14,11 +14,11 @@ async function loadPage(path) {
     element.innerHTML = html;
     const script = document.createElement('script');
     script.type = 'module';
-    script.src = basePath + '/script.js';
+    script.src = pagePath + '/script.js';
     element.content.appendChild(script);
     const styles = document.createElement('link');
     styles.rel = 'stylesheet';
-    styles.href = basePath + '/styles.css';
+    styles.href = pagePath + '/styles.css';
     element.content.appendChild(styles);
     return element.content.cloneNode(true);
   } catch (err) {
