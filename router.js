@@ -4,7 +4,7 @@ async function loadPage(path) {
   if (path === '/') {
     path = '/index';
   }
-  const basePath = '/pages' + path;
+  const basePath = basePath + '/pages' + path;
   try {
     const html = await fetch(basePath + '/page.html').then((response) =>
       response.text()
@@ -27,12 +27,12 @@ async function loadPage(path) {
   }
 }
 
+const basePath = location.pathname.split('/')[1];
 class Router {
   constructor() {
-    this.basePath = location.pathname.split('/')[1];
     const params = new URLSearchParams(location.search);
     if (params.has('url')) {
-      history.replaceState(null, null, this.basePath + '/' + params.get('url'));
+      history.replaceState(null, null, basePath + '/' + params.get('url'));
     }
     this.main = document.querySelector('main');
     this.mountPage();
@@ -47,7 +47,7 @@ class Router {
   }
 
   async navigate(path) {
-    history.pushState(null, null, this.basePath + path);
+    history.pushState(null, null, basePath + path);
     await this.mountPage();
   }
 
