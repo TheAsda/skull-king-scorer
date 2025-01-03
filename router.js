@@ -4,7 +4,7 @@ async function loadPage(path) {
   if (path === '/') {
     path = '/index';
   }
-  const pagePath = basePath + '/pages' + path;
+  const pagePath = '/pages' + path;
   try {
     const html = await fetch(pagePath + '/page.html').then((response) =>
       response.text()
