@@ -7,10 +7,10 @@ import {
 } from './calculation.js';
 
 if (GameData.state.complete) {
-  location.href = '/results';
+  location.href = "{{ '/results' | url }}";
 }
 if (GameData.state.roundsCount === 0 || GameData.state.playersCount === 0) {
-  location.href = '/new-game';
+  location.href = "{{ '/new-game' | url }}";
 }
 
 function getCurrentRound() {
@@ -137,7 +137,7 @@ function prevRound() {
 
 function finishGame() {
   GameData.markComplete();
-  location.href = '/results';
+  location.href = "{{ '/results' | url }}";
 }
 
 document

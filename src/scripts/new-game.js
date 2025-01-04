@@ -6,7 +6,7 @@ const roundCardsSection = form.querySelector('#round-cards');
 const roundsSelector = form.querySelector('[name="rounds-count"]');
 
 function nextStep() {
-  location.href = '/players';
+  location.href = "{{ '/players' | url }}";
 }
 
 function renderRoundCards(roundsCount, initialValue) {

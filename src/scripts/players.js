@@ -2,7 +2,7 @@ import { GameData } from './game-data.js';
 import './nunjucks.js';
 
 function startGame() {
-  location.href = '/game';
+  location.href = "{{ '/game' | url }}";
 }
 
 const form = document.querySelector('#players-form');

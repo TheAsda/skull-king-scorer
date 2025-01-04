@@ -1,2 +1,2 @@
 import 'https://mozilla.github.io/nunjucks/files/nunjucks.js';
-nunjucks.configure('/templates');
+nunjucks.configure("{{ '/templates' | url }}");

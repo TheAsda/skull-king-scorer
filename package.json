@@ -18,7 +18,7 @@
     "lib": "lib"
   },
   "scripts": {
-    "build":"npx @11ty/eleventy",
+    "build":"npx @11ty/eleventy --pathprefix=skull-king-scorer",
     "dev": "npx @11ty/eleventy --serve"
   },
   "dependencies": {
