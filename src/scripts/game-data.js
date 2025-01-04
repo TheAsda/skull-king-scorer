@@ -4,8 +4,11 @@ const defaultState = {
   playersCount: 0,
   roundsCount: 0,
   ready: false,
+  /** @type { string[] } */
   players: [],
+  /** @type { number[] } */
   roundsCards: [],
+  /** @type { {bet:number,take:number,bonuses:number}[] } */
   rounds: [],
   complete: false,
 };
@@ -26,6 +29,7 @@ function save() {
 }
 
 export const GameData = {
+  /** @returns { typeof defaultState } */
   get state() {
     if (_state === undefined) {
       load();

@@ -42,3 +42,7 @@ header {
 .hide-empty:where(:not(:has(*))) {
   display: none;
 }
+
+.hidden {
+  display: none;
+}

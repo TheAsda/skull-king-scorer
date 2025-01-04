@@ -6,6 +6,13 @@ import {
   getRoundCards,
 } from './calculation.js';
 
+if (GameData.state.complete) {
+  location.href = '/results';
+}
+if (GameData.state.roundsCount === 0 || GameData.state.playersCount === 0) {
+  location.href = '/new-game';
+}
+
 function getCurrentRound() {
   const round = new URLSearchParams(location.search).get('round');
   if (!round || Number(round) > 10 || Number(round) < 1) {
@@ -129,7 +136,7 @@ function prevRound() {
 }
 
 function finishGame() {
-  GameData.finishGame();
+  GameData.markComplete();
   location.href = '/results';
 }
 

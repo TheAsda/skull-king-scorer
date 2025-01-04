@@ -2,7 +2,11 @@ import './nunjucks.js';
 import { GameData } from './game-data.js';
 import { calculateTotalScore } from './calculation.js';
 
-const { players } = GameData.state;
+const { players, complete } = GameData.state;
+
+if (!complete) {
+  location.href = '/game';
+}
 
 const results = [];
 for (let i = 0; i < players.length; i++) {
