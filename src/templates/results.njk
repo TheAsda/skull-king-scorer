@@ -1,0 +1,26 @@
+<div class="vertical-stack">
+  <div class="winner vertical-stack">
+    <img
+      src="https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExMzV0ODc2c2ptbGRzOGNhZ3JucncxMHJrejZyODc0ajhkZG5vY3hwdiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/l0Ex3vQtX5VX2YtAQ/giphy.webp"
+      alt="winner"
+    />
+    <h2>{{ winner }}</h2>
+  </div>
+  <table>
+    <thead>
+      <tr>
+        <th>Игрок</th>
+        <th>Счет</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for playerData in players %}
+      <tr>
+        <td>{{ playerData.name }}</td>
+        <td>{{ playerData.score }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  <a class="btn" href="/">Главная</a>
+</div>

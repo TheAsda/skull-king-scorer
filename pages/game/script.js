@@ -160,6 +160,7 @@ function nextRound() {
   }
   renderRound(currentRound);
 }
+
 function prevRound() {
   currentRound = Math.max(0, currentRound - 1);
   renderRound(currentRound);

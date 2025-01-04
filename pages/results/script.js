@@ -33,16 +33,4 @@ document.querySelector('#winner-name').textContent = winners
   .map(({ name }) => name)
   .join(', ');
 
-function calculateTotalScore(playerIndex) {
-  return rounds.reduce(
-    (a, b, i) =>
-      a +
-      calculateScore(
-        i,
-        b[playerIndex].bet,
-        b[playerIndex].take,
-        b[playerIndex].bonuses
-      ),
-    0
-  );
-}
+

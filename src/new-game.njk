@@ -1,0 +1,27 @@
+---
+title: "Skull King Scorer | Новая игра"
+header: "Новая игра"
+layout: "base.njk"
+---
+
+<form
+  id="new-game-form"
+  class="vertical-stack full-height"
+>
+  <div class="field">
+    <label for="rounds-count">Количество раундов</label>
+    <select name="rounds-count">
+      {% for i in range(1, 11) %}
+        <option value="{{ i }}" {% if i == 10 %}selected{% endif %}>{{ i }}</option>
+      {% endfor %}
+    </select>
+  </div>
+  <div id="round-cards" class="vertical-stack hide-empty">
+  </div>
+  <button type="submit">Далее</button>
+  <div class="vertical-stack">
+    <h2>Пресеты</h2>
+    <button type="button" class="preset-button" data-rounds="5" data-cards="{{ [5,5,5,5,5] | dump }}">5 по 5</button>
+  </div>
+</form>
+<script type="module" src="/scripts/new-game.js"></script>

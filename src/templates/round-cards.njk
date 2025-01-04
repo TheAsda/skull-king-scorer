@@ -1,0 +1,14 @@
+{% macro roundSelector(roundNumber, defaultValue) %}
+  <select name="round-{{ roundNumber }}">
+    {% for i in range(1, 11) %}
+      <option value="{{ i }}" {% if i == defaultValue %}selected{% endif %}>{{ i }}</option>
+    {% endfor %}
+  </select>
+{% endmacro %}
+
+{% for roundNumber in range(roundsCount) %}
+<div class="field">
+  <label for="round-{{ roundNumber }}">Количество карт в раунде {{ roundNumber + 1 }}</label>
+  {{ roundSelector(roundNumber, initialValue[roundNumber] if initialValue[roundNumber] else roundNumber + 1 ) }}
+</div>
+{% endfor %}

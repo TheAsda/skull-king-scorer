@@ -1,0 +1,61 @@
+{% macro roundCardsOptions(roundCards, selected) %}
+<option value="">-</option>
+{% for i in range(0, roundCards + 1) %}
+  <option value="{{ i }}" {% if i == selected %}selected{% endif %}>{{ i }}</option>
+{% endfor %} 
+{% endmacro %} 
+
+{% macro playerRow(gameData, playerData) %}
+<tr data-index="{{ playerData.index }}">
+  <td>{{ playerData.name }}</td>
+  <td>
+    <select name="bet-{{ playerData.index }}">
+      {{ roundCardsOptions(gameData.roundCards, playerData.bet) }}
+    </select>
+  </td>
+  <td>
+    <select name="take-{{ playerData.index }}">
+      {{ roundCardsOptions(gameData.roundCards, playerData.take) }}
+    </select>
+  </td>
+  <td>
+    <input
+      type="number"
+      min="0"
+      max="999"
+      value="{{ playerData.bonuses }}"
+      name="bonuses-{{ playerData.index }}"
+    />
+  </td>
+  <td data-result>0</td>
+</tr>
+{% endmacro %}
+
+<header>
+  <h1>Раунд {{ roundIndex + 1 }} <span>({{ roundCards }} карт)</span></h1>
+</header>
+<form id="round-form" class="vertical-stack">
+  <table>
+    <thead>
+      <tr>
+        <th>Игрок</th>
+        <th>Ставка</th>
+        <th>Взятки</th>
+        <th>Бонусы</th>
+        <th>Счет</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% set gameData = { roundCards: roundCards, roundIndex: roundIndex } %} {% for playerData in
+      players %} {{ playerRow(gameData, playerData) }} {% endfor %}
+    </tbody>
+  </table>
+  {% if roundIndex > 0 %}
+  <button type="button" id="previous-round-button">Предыдущий раунд</button>
+  {% endif %}
+  {% if roundIndex < rounds - 1 %}
+  <button type="submit">Следующий раунд</button>
+  {% else %}
+  <button type="submit">Завершить игру</button>
+  {% endif %}
+</form>

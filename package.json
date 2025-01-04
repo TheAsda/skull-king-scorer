@@ -1,0 +1,32 @@
+{
+  "name": "skull-king-scorer",
+  "version": "1.0.0",
+  "description": "Website that tracks Skull King card game score",
+  "homepage": "https://github.com/TheAsda/skull-king-scorer#readme",
+  "bugs": {
+    "url": "https://github.com/TheAsda/skull-king-scorer/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TheAsda/skull-king-scorer.git"
+  },
+  "license": "ISC",
+  "author": "Andrey A. Kiselev",
+  "type": "module",
+  "main": "app.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "build":"npx @11ty/eleventy",
+    "dev": "npx @11ty/eleventy --serve"
+  },
+  "dependencies": {
+    "bun-types": "^1.1.37",
+    "typescript": "^5.7.2",
+    "undici-types": "^5.26.5"
+  },
+  "devDependencies": {
+    "@11ty/eleventy": "^3.0.0"
+  }
+}
