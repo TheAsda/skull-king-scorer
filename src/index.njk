@@ -4,7 +4,7 @@ layout: "base.njk"
 ---
 
 <div class="vertical-stack vertical-stack--center full-height">
-  <a class="btn" href="/new-game" id="new-game-button">Новая игра</a>
+  <a class="btn" href="{{ '/new-game' | url }}" id="new-game-button">Новая игра</a>
   <a class="btn hidden" href="{{ '/results' | url }}" id="results-button">Результаты последней игры</a>
   <a class="btn hidden" href="{{ '/game' | url }}" id="continue-button">Продолжить игру</a>
 </div>
