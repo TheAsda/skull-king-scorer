@@ -1,11 +1,10 @@
 <div class="vertical-stack">
-  <h1>Результаты</h1>
-  <div class="winner">
+  <div class="winner vertical-stack">
     <img
       src="https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExMzV0ODc2c2ptbGRzOGNhZ3JucncxMHJrejZyODc0ajhkZG5vY3hwdiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/l0Ex3vQtX5VX2YtAQ/giphy.webp"
       alt="winner"
     />
-    <h1 id="winner-name">Player</h1>
+    <h2>{{ winner }}</h2>
   </div>
   <table>
     <thead>
@@ -14,18 +13,14 @@
         <th>Счет</th>
       </tr>
     </thead>
-    <tbody></tbody>
+    <tbody>
+      {% for playerData in players %}
+      <tr>
+        <td>{{ playerData.name }}</td>
+        <td>{{ playerData.score }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
   </table>
-  <a class="btn" href="/">Главная</a>
+  <a class="btn" href="{{ '/' | url }}">Главная</a>
 </div>
-
-<template id="result-row">
-  <tr>
-    <td>
-      <span class="player-name"></span>
-    </td>
-    <td>
-      <span class="score"></span>
-    </td>
-  </tr>
-</template>

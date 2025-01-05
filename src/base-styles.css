@@ -1,0 +1,52 @@
+body {
+  display: flex;
+  flex-direction: column;
+  height: 100dvh;
+  overflow: auto;
+}
+
+main {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  padding: var(--size-4);
+}
+
+header {
+  width: 100%;
+  text-align: center;
+  display: grid;
+  place-items: center;
+}
+
+.vertical-stack {
+  display: flex;
+  flex-direction: column;
+  gap: var(--size-2);
+  align-items: center;
+  justify-content: center;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--size-1);
+}
+
+.full-height {
+  flex-grow: 1;
+}
+
+.hide-empty:empty,
+.hide-empty:where(:not(:has(*))) {
+  display: none;
+}
+
+.hidden {
+  display: none;
+}
+
+@view-transition {
+  navigation: auto;
+}

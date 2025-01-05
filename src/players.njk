@@ -1,0 +1,24 @@
+---
+title: Skull King Scorer | Новая игра | Игроки
+header: "Игроки"
+layout: "base.njk"
+---
+
+<form
+  id="players-form"
+  class="vertical-stack vertical-stack--center full-height"
+>
+ <div class="field">
+    <label for="players-count">Количество игроков</label>
+    <select name="players-count">
+      {% for i in range(2, 9) %}
+        <option value="{{ i }}" {% if i == 4 %}selected{% endif %}>{{ i }}</option>
+      {% endfor %}
+    </select>
+  </div>
+  <div id="player-names" class="vertical-stack hide-empty">
+  </div>
+  <button id="next" type="submit">Далее</button>
+</form>
+
+<script src="{{ '/scripts/players.js' | url }}" type="module"></script>
