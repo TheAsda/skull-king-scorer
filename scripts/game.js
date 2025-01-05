@@ -109,7 +109,7 @@ form.addEventListener('submit', (event) => {
         return;
       }
     } else {
-      alert('Тогда проверьте введенные данные');
+      alert(`Проверьте введенные данные (${takesSum} из ${roundCards})`);
       return;
     }
   }

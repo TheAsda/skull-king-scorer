@@ -82,9 +82,7 @@ output += "</td>\n      </tr>\n      ";
 }
 }
 frame = frame.pop();
-output += "\n    </tbody>\n  </table>\n  <a class=\"btn\" href=\"";
-output += runtime.suppressValue(env.getFilter("url").call(context, "/"), env.opts.autoescape);
-output += "\">Главная</a>\n</div>\n";
+output += "\n    </tbody>\n  </table>\n</div>\n";
 if(parentTemplate) {
 parentTemplate.rootRenderFunc(env, context, frame, runtime, cb);
 } else {
