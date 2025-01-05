@@ -4,6 +4,9 @@ header: "Результаты"
 layout: "base.njk"
 ---
 
-<div id="results"></div>
+<div class="vertical-stack">
+  <div id="results"></div>
+  <a class="btn" href="{{ '/' | url }}">Главная</a>
+</div>
 <link rel="stylesheet" href="{{ '/styles/results.css' | url }}" />
 <script src="{{ '/scripts/results.js' | url }}" type="module"></script>
