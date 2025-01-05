@@ -22,6 +22,9 @@ export default (eleventyConfig) => {
   eleventyConfig.watchIgnores.add('./src/scripts/templates.js');
   eleventyConfig.ignores.add('./src/templates/*.njk');
   //#endregion
+
+  eleventyConfig.addPassthroughCopy('./src/assets');
+
   return {
     dir: {
       input: 'src',
