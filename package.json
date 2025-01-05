@@ -18,15 +18,11 @@
     "lib": "lib"
   },
   "scripts": {
-    "build":"npx @11ty/eleventy --pathprefix=skull-king-scorer",
+    "build": "npx @11ty/eleventy --pathprefix=skull-king-scorer",
     "dev": "npx @11ty/eleventy --serve"
   },
-  "dependencies": {
-    "bun-types": "^1.1.37",
-    "typescript": "^5.7.2",
-    "undici-types": "^5.26.5"
-  },
   "devDependencies": {
-    "@11ty/eleventy": "^3.0.0"
+    "@11ty/eleventy": "^3.0.0",
+    "undici-types": "^5.26.5"
   }
 }
