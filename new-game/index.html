@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Skull King Scorer | Новая игра</title>
+    <link rel="stylesheet" href="https://unpkg.com/open-props" />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/open-props/normalize.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/open-props/buttons.min.css"
+    />
+    <link rel="stylesheet" href="/base-styles.css" />
+    <script>
+      window._PATH_PREFIX_ = "/skull-king-scorer/";
+    </script>
+  </head>
+  <body>
+    
+    <header>
+      <h1>Новая игра</h1>
+    </header>
+    
+    <main>
+<form
+  id="new-game-form"
+  class="vertical-stack full-height"
+>
+  <div class="field">
+    <label for="rounds-count">Количество раундов</label>
+    <select name="rounds-count">
+      
+        <option value="1" >1</option>
+      
+        <option value="2" >2</option>
+      
+        <option value="3" >3</option>
+      
+        <option value="4" >4</option>
+      
+        <option value="5" >5</option>
+      
+        <option value="6" >6</option>
+      
+        <option value="7" >7</option>
+      
+        <option value="8" >8</option>
+      
+        <option value="9" >9</option>
+      
+        <option value="10" selected>10</option>
+      
+    </select>
+  </div>
+  <div id="round-cards" class="vertical-stack hide-empty">
+  </div>
+  <button type="submit">Далее</button>
+  <div class="vertical-stack">
+    <h2>Пресеты</h2>
+    <button type="button" class="preset-button" data-rounds="5" data-cards="[5,5,5,5,5]">5 по 5</button>
+  </div>
+</form>
+<script type="module" src="/scripts/new-game.js"></script></main>
+  </body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Skull King Scorer | Новая игра | Игроки</title>
+    <link rel="stylesheet" href="https://unpkg.com/open-props" />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/open-props/normalize.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/open-props/buttons.min.css"
+    />
+    <link rel="stylesheet" href="/base-styles.css" />
+    <script>
+      window._PATH_PREFIX_ = "/skull-king-scorer/";
+    </script>
+  </head>
+  <body>
+    
+    <header>
+      <h1>Игроки</h1>
+    </header>
+    
+    <main>
+<form
+  id="players-form"
+  class="vertical-stack vertical-stack--center full-height"
+>
+ <div class="field">
+    <label for="players-count">Количество игроков</label>
+    <select name="players-count">
+      
+        <option value="2" >2</option>
+      
+        <option value="3" >3</option>
+      
+        <option value="4" selected>4</option>
+      
+        <option value="5" >5</option>
+      
+        <option value="6" >6</option>
+      
+        <option value="7" >7</option>
+      
+        <option value="8" >8</option>
+      
+    </select>
+  </div>
+  <div id="player-names" class="vertical-stack hide-empty">
+  </div>
+  <button id="next" type="submit">Далее</button>
+</form>
+
+<script src="/skull-king-scorer/scripts/players.js" type="module"></script></main>
+  </body>
+</html>

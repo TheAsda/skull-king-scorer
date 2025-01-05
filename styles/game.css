@@ -1,0 +1,78 @@
+table {
+  width: 100%;
+}
+
+select {
+  width: 100%;
+}
+
+input {
+  width: 100%;
+}
+
+@view-transition {
+  navigation: auto;
+}
+
+:root {
+  view-transition-name: none;
+}
+
+.transition-forwards {
+  view-transition-name: forwards;
+}
+
+.transition-backwards {
+  view-transition-name: backwards;
+}
+
+::view-transition-old(forwards) {
+  animation-name: slide-out-to-left;
+}
+
+::view-transition-new(forwards) {
+  animation-name: slide-in-from-right;
+}
+
+::view-transition-old(backwards) {
+  animation-name: slide-out-to-right;
+}
+
+::view-transition-new(backwards) {
+  animation-name: slide-in-from-left;
+}
+
+@keyframes slide-in-from-left {
+  from {
+    translate: -100vw 0;
+  }
+}
+@keyframes slide-in-from-right {
+  from {
+    translate: 100vw 0;
+  }
+}
+@keyframes slide-out-to-left {
+  to {
+    translate: -100vw 0;
+  }
+}
+@keyframes slide-out-to-right {
+  to {
+    translate: 100vw 0;
+  }
+}
+
+::view-transition-group(*) {
+  animation-duration: 0.3s;
+  animation-timing-function: ease-in;
+  animation-fill-mode: both;
+}
+
+@media (prefers-reduced-motion) {
+  ::view-transition-group(*),
+  ::view-transition-old(*),
+  ::view-transition-new(*) {
+    animation: none !important;
+  }
+}
