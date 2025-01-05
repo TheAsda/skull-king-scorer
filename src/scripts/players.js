@@ -33,7 +33,6 @@ form.addEventListener('submit', (event) => {
   const players = Array.from(Array(playersCount), (_, i) =>
     formData.get(`player-${i}`)
   );
-  console.log(playersCount, players);
   GameData.startGame(playersCount, players);
   startGame();
 });
