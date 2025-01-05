@@ -24,4 +24,4 @@ layout: "base.njk"
     <button type="button" class="preset-button" data-rounds="5" data-cards="{{ [5,5,5,5,5] | dump }}">5 по 5</button>
   </div>
 </form>
-<script type="module" src="/scripts/new-game.js"></script>
+<script type="module" src="{{ '/scripts/new-game.js' | url}}"></script>
