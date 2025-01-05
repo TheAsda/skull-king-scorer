@@ -1,12 +1,13 @@
 import { GameData } from './game-data.js';
 import './nunjucks.js';
+import { getUrl } from './url.js';
 
 const form = document.querySelector('#new-game-form');
 const roundCardsSection = form.querySelector('#round-cards');
 const roundsSelector = form.querySelector('[name="rounds-count"]');
 
 function nextStep() {
-  location.href = "{{ '/players' | url }}";
+  location.href = getUrl('/players');
 }
 
 function renderRoundCards(roundsCount, initialValue) {

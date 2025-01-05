@@ -5,7 +5,7 @@ import { calculateTotalScore } from './calculation.js';
 const { players, complete } = GameData.state;
 
 if (!complete) {
-  location.href = "{{ '/game' | url }}";
+  location.href = getUrl('/game');
 }
 
 const results = [];

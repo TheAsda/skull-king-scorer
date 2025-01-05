@@ -5,12 +5,13 @@ import {
   getPreviousRoundsTotal,
   getRoundCards,
 } from './calculation.js';
+import { getUrl } from './url.js';
 
 if (GameData.state.complete) {
-  location.href = "{{ '/results' | url }}";
+  location.href = getUrl('/results');
 }
 if (GameData.state.roundsCount === 0 || GameData.state.playersCount === 0) {
-  location.href = "{{ '/new-game' | url }}";
+  location.href = getUrl('/new-game');
 }
 
 function getCurrentRound() {
@@ -137,7 +138,7 @@ function prevRound() {
 
 function finishGame() {
   GameData.markComplete();
-  location.href = "{{ '/results' | url }}";
+  location.href = getUrl('/results');
 }
 
 document

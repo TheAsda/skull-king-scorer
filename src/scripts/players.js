@@ -1,8 +1,9 @@
 import { GameData } from './game-data.js';
 import './nunjucks.js';
+import { getUrl } from './url.js';
 
 function startGame() {
-  location.href = "{{ '/game' | url }}";
+  location.href = getUrl('/game');
 }
 
 const form = document.querySelector('#players-form');
