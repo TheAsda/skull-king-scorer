@@ -14,10 +14,13 @@ export default (eleventyConfig) => {
       'npx nunjucks-precompile src/templates --include "\\.njk"'
     );
     await writeFile('./src/scripts/templates.js', output);
-    eleventyConfig.logger.message('Templates precompiled into src/scripts/templates.js');
+    eleventyConfig.logger.message(
+      'Templates precompiled into src/scripts/templates.js'
+    );
   });
   eleventyConfig.addWatchTarget('./src/templates/*.njk');
   eleventyConfig.watchIgnores.add('./src/scripts/templates.js');
+  eleventyConfig.ignores.add('./src/templates/*.njk');
   //#endregion
   return {
     dir: {
