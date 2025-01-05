@@ -127,12 +127,14 @@ form.addEventListener('submit', (event) => {
 function nextRound() {
   const url = new URL(location.href);
   url.searchParams.set('round', round + 2);
+  document.querySelector('#round').classList.add('transition-forwards');
   location.href = url.href;
 }
 
 function prevRound() {
   const url = new URL(location.href);
   url.searchParams.set('round', round);
+  document.querySelector('#round').classList.add('transition-backwards');
   location.href = url.href;
 }
 

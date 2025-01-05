@@ -1,6 +1,7 @@
 import { GameData } from './game-data.js';
 import './nunjucks.js';
 import { getUrl } from './url.js';
+import { withTransition } from './view-transition.js';
 
 const form = document.querySelector('#new-game-form');
 const roundCardsSection = form.querySelector('#round-cards');
@@ -11,9 +12,11 @@ function nextStep() {
 }
 
 function renderRoundCards(roundsCount, initialValue) {
-  roundCardsSection.innerHTML = nunjucks.render('round-cards.njk', {
-    roundsCount,
-    initialValue,
+  withTransition(() => {
+    roundCardsSection.innerHTML = nunjucks.render('round-cards.njk', {
+      roundsCount,
+      initialValue,
+    });
   });
 }
 

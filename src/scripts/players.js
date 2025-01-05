@@ -1,6 +1,7 @@
 import { GameData } from './game-data.js';
 import './nunjucks.js';
 import { getUrl } from './url.js';
+import { withTransition } from './view-transition.js';
 
 function startGame() {
   location.href = getUrl('/game');
@@ -11,8 +12,10 @@ const playersCountSelector = form.querySelector('[name="players-count"]');
 const playerNamesSection = form.querySelector('#player-names');
 
 function renderPlayersNames(playersCount) {
-  playerNamesSection.innerHTML = nunjucks.render('players-names.njk', {
-    playersCount,
+  withTransition(() => {
+    playerNamesSection.innerHTML = nunjucks.render('players-names.njk', {
+      playersCount,
+    });
   });
 }
 

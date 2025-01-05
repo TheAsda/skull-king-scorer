@@ -46,3 +46,7 @@ header {
 .hidden {
   display: none;
 }
+
+@view-transition {
+  navigation: auto;
+}
