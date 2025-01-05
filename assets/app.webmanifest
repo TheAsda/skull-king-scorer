@@ -1,0 +1,133 @@
+{
+  "name": "Skull King Scorer",
+  "short_name": "SK Scorer",
+  "icons": [
+    
+    
+    
+    {
+      "src": "/skull-king-scorer/assets/generated/icon-rounded-32.png",
+      "sizes": "32x32",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/skull-king-scorer/assets/generated/icon-32.png",
+      "sizes": "32x32",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+      
+      ,
+      
+    
+    
+    
+    {
+      "src": "/skull-king-scorer/assets/generated/icon-rounded-128.png",
+      "sizes": "128x128",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/skull-king-scorer/assets/generated/icon-128.png",
+      "sizes": "128x128",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+      
+      ,
+      
+    
+    
+    
+    {
+      "src": "/skull-king-scorer/assets/generated/icon-rounded-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/skull-king-scorer/assets/generated/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+      
+      ,
+      
+    
+    
+    
+    {
+      "src": "/skull-king-scorer/assets/generated/icon-rounded-256.png",
+      "sizes": "256x256",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/skull-king-scorer/assets/generated/icon-256.png",
+      "sizes": "256x256",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+      
+      ,
+      
+    
+    
+    
+    {
+      "src": "/skull-king-scorer/assets/generated/icon-rounded-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/skull-king-scorer/assets/generated/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+      
+    
+  ],
+  "screenshots": [
+    {
+      "src": "/skull-king-scorer/assets/desktop-screenshot.png",
+      "sizes": "1515x852",
+      "type": "image/png",
+      "form_factor": "wide",
+      "label": "Стартовая страница"
+    },
+    {
+      "src": "/skull-king-scorer/assets/desktop-result-screenshot.png",
+      "sizes": "1515x852",
+      "type": "image/png",
+      "form_factor": "wide",
+      "label": "Страница с результатами"
+    },
+    {
+      "src": "/skull-king-scorer/assets/mobile-screenshot.png",
+      "sizes": "412x915",
+      "type": "image/png",
+      "form_factor": "narrow",
+      "label": "Стартовая страница"
+    },
+    {
+      "src": "/skull-king-scorer/assets/mobile-result-screenshot.png",
+      "sizes": "412x915",
+      "type": "image/png",
+      "form_factor": "narrow",
+      "label": "Страница с результатами"
+    }
+  ],
+  "orientation": "portrait",
+  "dir":"ltr",
+  "lang": "ru-RU",
+  "start_url": "/skull-king-scorer/",
+  "id": "skull-king-scorer",
+  "display": "standalone",
+  "theme_color": "#000000",
+  "background_color": "#212529"
+}
