@@ -10,7 +10,7 @@ layout: "base.njk"
 >
   <div class="field">
     <label for="rounds-count">Количество раундов</label>
-    <select name="rounds-count">
+    <select name="rounds-count" id="rounds-count">
       {% for i in range(1, 11) %}
         <option value="{{ i }}" {% if i == 10 %}selected{% endif %}>{{ i }}</option>
       {% endfor %}

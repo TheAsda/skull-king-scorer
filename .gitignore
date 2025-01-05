@@ -177,3 +177,4 @@ dist
 public/
 
 src/scripts/templates.js
+src/assets/generated/

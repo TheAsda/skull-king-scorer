@@ -1,6 +1,6 @@
 {% for i in range(playersCount) %}
 <div class="field">
   <label for="player-{{ i }}">Игрок {{ i + 1 }}</label>
-  <input required type="text" name="player-{{ i }}" value="Игрок {{ i + 1 }}" />
+  <input id="player-{{ i }}" required type="text" name="player-{{ i }}" value="Игрок {{ i + 1 }}" />
 </div>
 {% endfor %}

@@ -2,7 +2,13 @@
 <html lang="ru">
   <head>
     <meta charset="UTF-8" />
+    <link
+      rel="icon"
+      type="image/png"
+      href="{{ '/assets/generated/icon-rounded-32.png' | url }}"
+    />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="manifest" href="{{ '/assets/app.webmanifest' | url }}" />
     <title>{{title}}</title>
     <link rel="stylesheet" href="https://unpkg.com/open-props" />
     <link
@@ -15,7 +21,7 @@
     />
     <link rel="stylesheet" href="{{ '/base-styles.css' | url}}" />
     <script>
-      window._PATH_PREFIX_ = "{{ '/' | url }}";
+      window._PATH_PREFIX_ = "{{ '/' | url }}"
     </script>
   </head>
   <body>
