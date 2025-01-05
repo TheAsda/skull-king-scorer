@@ -1,5 +1,5 @@
 {% macro roundSelector(roundNumber, defaultValue) %}
-  <select name="round-{{ roundNumber }}">
+  <select name="round-{{ roundNumber }}" id="round-{{ roundNumber }}">
     {% for i in range(1, 11) %}
       <option value="{{ i }}" {% if i == defaultValue %}selected{% endif %}>{{ i }}</option>
     {% endfor %}
