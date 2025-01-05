@@ -23,6 +23,7 @@
   },
   "devDependencies": {
     "@11ty/eleventy": "^3.0.0",
+    "@11ty/eleventy-img": "^5.0.0",
     "undici-types": "^5.26.5"
   }
 }

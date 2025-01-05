@@ -1,0 +1,65 @@
+---
+permalink: '/assets/app.webmanifest'
+---
+{
+  "name": "Skull King Scorer",
+  "short_name": "SK Scorer",
+  "icons": [
+    {% for size in [32, 128, 192, 256, 512] %}
+    {% set iconRoundedPath = '/assets/generated/icon-rounded-' + size + '.png' %}
+    {% set iconPath = '/assets/generated/icon-' + size + '.png' %}
+    {
+      "src": "{{ iconRoundedPath | url }}",
+      "sizes": "{{ size }}x{{ size }}",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "{{ iconPath | url }}",
+      "sizes": "{{ size }}x{{ size }}",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+      {% if size < 512 %}
+      ,
+      {% endif %}
+    {% endfor %}
+  ],
+  "screenshots": [
+    {
+      "src": "{{ '/assets/desktop-screenshot.png' | url }}",
+      "sizes": "1515x852",
+      "type": "image/png",
+      "form_factor": "wide",
+      "label": "Стартовая страница"
+    },
+    {
+      "src": "{{ '/assets/desktop-result-screenshot.png' | url }}",
+      "sizes": "1515x852",
+      "type": "image/png",
+      "form_factor": "wide",
+      "label": "Страница с результатами"
+    },
+    {
+      "src": "{{ '/assets/mobile-screenshot.png' | url }}",
+      "sizes": "412x915",
+      "type": "image/png",
+      "form_factor": "narrow",
+      "label": "Стартовая страница"
+    },
+    {
+      "src": "{{ '/assets/mobile-result-screenshot.png' | url }}",
+      "sizes": "412x915",
+      "type": "image/png",
+      "form_factor": "narrow",
+      "label": "Страница с результатами"
+    }
+  ],
+  "orientation": "portrait",
+  "dir":"ltr",
+  "lang": "ru-RU",
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#000000",
+  "background_color": "#212529"
+}
