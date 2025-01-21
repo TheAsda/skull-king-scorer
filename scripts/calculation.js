@@ -13,7 +13,7 @@ export function calculateScore(round, bet, take, bonuses = 0) {
   if (bet === 0) {
     const roundScore = 10 * getRoundCards(round);
     if (take === 0) {
-      return roundScore;
+      return roundScore + bonuses;
     } else {
       return -1 * roundScore;
     }
