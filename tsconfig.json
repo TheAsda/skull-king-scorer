@@ -1,0 +1,10 @@
+{
+  "compilerOptions": {
+    "target": "es6",
+    "module": "esnext",
+    "outDir": "dist",
+    "lib": ["ES2024", "DOM", "DOM.Iterable", "ESNext"],
+    "strict": true,
+    "allowJs": true
+  }
+}

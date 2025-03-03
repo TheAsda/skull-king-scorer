@@ -1,20 +1,31 @@
 import { GameData } from './game-data.js';
-import './nunjucks.js';
+import './nunjucks-init.js';
 import { getUrl } from './url.js';
 import { withTransition } from './view-transition.js';
 
 function startGame() {
+  GameData.startGame();
   location.href = getUrl('/game');
 }
 
-const form = document.querySelector('#players-form');
-const playersCountSelector = form.querySelector('[name="players-count"]');
-const playerNamesSection = form.querySelector('#player-names');
+const form = document.querySelector<HTMLFormElement>('#players-form')!;
+const playersCountSelector = form.querySelector<HTMLSelectElement>(
+  '[name="players-count"]'
+)!;
+const playerNamesSection = form.querySelector('#player-names')!;
 
-function renderPlayersNames(playersCount) {
+const gameState = GameData.state;
+
+const playersCount = gameState.players.length;
+if (playersCount !== 0) {
+  playersCountSelector.value = playersCount.toString();
+}
+
+function renderPlayersNames(playersCount: number) {
   withTransition(() => {
     playerNamesSection.innerHTML = nunjucks.render('players-names.njk', {
       playersCount,
+      players: gameState.players,
     });
   });
 }
@@ -31,8 +42,8 @@ form.addEventListener('submit', (event) => {
   const formData = new FormData(form);
   const playersCount = Number(formData.get('players-count'));
   const players = Array.from(Array(playersCount), (_, i) =>
-    formData.get(`player-${i}`)
+    formData.get(`player-${i}`)!.toString()
   );
-  GameData.startGame(playersCount, players);
+  GameData.fillPlayersData(players);
   startGame();
 });
