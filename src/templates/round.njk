@@ -31,9 +31,10 @@
 </tr>
 {% endmacro %}
 
-<header>
-  <h1>Раунд {{ roundIndex + 1 }} <span>({{ roundCards }} карт)</span></h1>
+<template id="round-header">
+  Раунд {{ roundIndex + 1 }} <span>({{ roundCards }} карт)</span>
 </header>
+</template>
 <form id="round-form" class="vertical-stack full-width">
   <table>
     <thead>

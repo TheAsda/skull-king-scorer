@@ -17,7 +17,17 @@ header {
   width: 100%;
   text-align: center;
   display: grid;
-  place-items: center;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+}
+
+.header-logo-container {
+  padding: var(--size-3);
+  display: flex;
+}
+
+.header-logo {
+  width: var(--size-8);
 }
 
 .vertical-stack {

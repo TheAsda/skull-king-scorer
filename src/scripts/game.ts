@@ -43,6 +43,14 @@ document.querySelector('#round')!.innerHTML = nunjucks.render('round.njk', {
   })),
 });
 
+document
+  .querySelector('#header-title')!
+  .replaceChildren(
+    document
+      .querySelector<HTMLTemplateElement>('#round-header')!
+      .content.cloneNode(true)
+  );
+
 const form = document.querySelector<HTMLFormElement>('#round-form')!;
 
 function attachCalculation(row: HTMLTableRowElement) {
