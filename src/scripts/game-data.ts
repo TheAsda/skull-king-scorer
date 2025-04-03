@@ -27,7 +27,7 @@ const GAME_DATA_KEY = 'gameData-v2';
 const _state: State = loadState();
 
 function loadState() {
-  const gameData = Storage.get(GAME_DATA_KEY);
+  const gameData = Storage.get<State>(GAME_DATA_KEY);
   if (gameData && validateGameData(gameData)) {
     return gameData;
   }
