@@ -6,7 +6,10 @@ layout: "base.njk"
 
 <div class="vertical-stack">
   <div id="results"></div>
-  <a class="btn" href="{{ '/' | url }}">Главная</a>
+  <div class="vertical-stack">
+    <a class="btn" href="{{ '/' | url }}">Главная</a>
+    <a id="new-game" class="btn" href="{{ '/new-game' | url }}">Новая игра</a>
+  </div>
 </div>
 <link rel="stylesheet" href="{{ '/styles/results.css' | url }}" />
 <script src="{{ '/scripts/results.js' | url }}" type="module"></script>

@@ -3,6 +3,8 @@ import './nunjucks-init.js';
 import { getUrl } from './url.js';
 import { withTransition } from './view-transition.js';
 
+GameData.stopPreviousGame();
+
 function startGame() {
   GameData.startGame();
   location.href = getUrl('/game');

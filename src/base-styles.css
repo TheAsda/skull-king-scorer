@@ -28,6 +28,10 @@ header {
   justify-content: center;
 }
 
+.full-width {
+  width: 100%;
+}
+
 .field {
   display: flex;
   flex-direction: column;

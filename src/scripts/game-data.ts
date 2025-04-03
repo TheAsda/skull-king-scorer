@@ -66,6 +66,24 @@ export const GameData = {
     _state.rounds[roundIndex][playerIndex] = data;
     save();
   },
+  newGame() {
+    if (!this.state.gameFinished) {
+      throw new Error('Game is not finished');
+    }
+    this.stopPreviousGame();
+  },
+  stopPreviousGame() {
+    if (
+      this.state.gameFinished ||
+      this.state.gameInProgress ||
+      this.state.rounds.length > 0
+    ) {
+      _state.gameFinished = false;
+      _state.gameInProgress = false;
+      _state.rounds = [];
+      save();
+    }
+  },
   startGame() {
     _state.gameInProgress = true;
     save();

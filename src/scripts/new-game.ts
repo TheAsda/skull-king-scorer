@@ -1,7 +1,9 @@
-import { GameData } from './game-data.js';
 import './nunjucks-init.js';
+import { GameData } from './game-data.js';
 import { getUrl } from './url.js';
 import { withTransition } from './view-transition.js';
+
+GameData.stopPreviousGame();
 
 const form = document.querySelector<HTMLFormElement>('#new-game-form')!;
 const roundCardsSection = form.querySelector('#round-cards')!;

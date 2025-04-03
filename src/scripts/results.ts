@@ -26,3 +26,9 @@ document.querySelector('#results')!.innerHTML = nunjucks.render('results.njk', {
   winner: winners.map(({ name }) => name).join(', '),
   players: results,
 });
+
+document
+  .querySelector<HTMLAnchorElement>('#new-game')!
+  .addEventListener('click', () => {
+    GameData.newGame();
+  });
