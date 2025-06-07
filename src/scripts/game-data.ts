@@ -1,4 +1,5 @@
 import { Storage } from './storage.js';
+import { getUrl } from './url.js';
 
 export type RoundData = {
   bet: number;
@@ -70,14 +71,22 @@ export const GameData = {
     if (!this.state.gameFinished) {
       throw new Error('Game is not finished');
     }
-    this.stopPreviousGame();
+    _state.gameFinished = false;
+    _state.gameInProgress = false;
+    _state.rounds = [];
+    save();
   },
   stopPreviousGame() {
-    if (
-      this.state.gameFinished ||
-      this.state.gameInProgress ||
-      this.state.rounds.length > 0
-    ) {
+    if (this.state.gameFinished || this.state.gameInProgress) {
+      if (
+        confirm(
+          'Обнаружена незавершённая игра. Хотите продолжить её? Если не продолжить, текущая игра будет утеряна.'
+        )
+      ) {
+        location.href = getUrl('/game');
+        return;
+      }
+      console.debug('Stopping previous game');
       _state.gameFinished = false;
       _state.gameInProgress = false;
       _state.rounds = [];
@@ -90,6 +99,7 @@ export const GameData = {
   },
   markComplete() {
     _state.gameFinished = true;
+    _state.gameInProgress = false;
     save();
   },
 };
