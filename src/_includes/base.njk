@@ -28,14 +28,12 @@
     {% if header %}
     <header>
       <div class="header-logo-container">
-        <div>
-          <a href="{{ '/' | url }}" class="header-logo-link">
-            <img
-              class="header-logo"
-              src="{{ '/assets/generated/icon-rounded-128.png' | url }}"
-            />
-          </a>
-        </div>
+        <a href="{{ '/' | url }}" class="header-logo-link">
+          <img
+            class="header-logo"
+            src="{{ '/assets/generated/icon-rounded-128.png' | url }}"
+          />
+        </a>
       </div>
       <h1 id="header-title">{{ header | safe }}</h1>
     </header>
