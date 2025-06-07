@@ -23,9 +23,11 @@ await Image('./favicon-inkscape.svg', {
         }" fill="white" />
       </svg>`
       );
-      return sharp.composite([
-        { input: roundedCorners, top: 0, left: 0, blend: 'dest-in' },
-      ]);
+      return sharp
+        .composite([
+          { input: roundedCorners, top: 0, left: 0, blend: 'dest-in' },
+        ])
+        .toBuffer();
     },
   },
   useCache: false,
