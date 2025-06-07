@@ -27,7 +27,15 @@
   <body>
     
     <header>
-      <h1>Новая игра</h1>
+      <div class="header-logo-container">
+        <a href="/skull-king-scorer/" class="header-logo-link">
+          <img
+            class="header-logo"
+            src="/skull-king-scorer/assets/generated/icon-rounded-128.png"
+          />
+        </a>
+      </div>
+      <h1 id="header-title">Новая игра</h1>
     </header>
     
     <main>
@@ -67,6 +75,8 @@
   <div class="vertical-stack">
     <h2>Пресеты</h2>
     <button type="button" class="preset-button" data-rounds="5" data-cards="[5,5,5,5,5]">5 по 5</button>
+    <button type="button" class="preset-button" data-rounds="10" data-cards="[1,2,3,4,5,6,7,8,9,10]">от 1 до 10</button>
+    <button type="button" class="preset-button" data-rounds="5" data-cards="[6,7,8,9,10]">6,7,8,9,10</button>
   </div>
 </form>
 <script type="module" src="/skull-king-scorer/scripts/new-game.js"></script></main>

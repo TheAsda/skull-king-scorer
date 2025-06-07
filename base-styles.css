@@ -17,7 +17,30 @@ header {
   width: 100%;
   text-align: center;
   display: grid;
-  place-items: center;
+  grid-template-columns: max-content auto 1fr;
+  align-items: center;
+  gap: var(--size-2);
+}
+
+.header-logo-container {
+  padding: var(--size-3);
+  display: flex;
+  height: 100%;
+  flex-shrink: 0;
+}
+
+.header-logo-link {
+  flex-shrink: 0;
+}
+
+.header-logo {
+  width: var(--font-size-6);
+  height: var(--font-size-6);
+}
+
+#header-title {
+  font-size: clamp(var(--font-size-4), var(--font-size-6),var(--font-size-8));
+  white-space: nowrap;
 }
 
 .vertical-stack {
@@ -26,6 +49,10 @@ header {
   gap: var(--size-2);
   align-items: center;
   justify-content: center;
+}
+
+.full-width {
+  width: 100%;
 }
 
 .field {

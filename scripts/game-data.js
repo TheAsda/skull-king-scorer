@@ -1,76 +1,89 @@
-import { Storage } from './storage.js';
-
+import { Storage } from "./storage.js";
+import { getUrl } from "./url.js";
 const defaultState = {
-  playersCount: 0,
-  roundsCount: 0,
-  ready: false,
-  /** @type { string[] } */
+  gameInProgress: false,
   players: [],
-  /** @type { number[] } */
   roundsCards: [],
-  /** @type { {bet:number,take:number,bonuses:number}[] } */
   rounds: [],
-  complete: false,
+  gameFinished: false
 };
-
-let _state;
-
-function load() {
-  const gameData = Storage.get('gameData');
-  if (gameData) {
-    _state = gameData;
-  } else {
-    _state = defaultState;
+const GAME_DATA_KEY = "gameData-v2";
+const _state = loadState();
+function loadState() {
+  const gameData = Storage.get(GAME_DATA_KEY);
+  if (gameData && validateGameData(gameData)) {
+    return gameData;
   }
+  return defaultState;
 }
-
 function save() {
-  Storage.set('gameData', _state);
+  Storage.set(GAME_DATA_KEY, _state);
 }
-
 export const GameData = {
-  /** @returns { typeof defaultState } */
   get state() {
-    if (_state === undefined) {
-      load();
-    }
     return _state;
   },
-  newGame(roundsCount, roundsCards) {
-    if (roundsCount !== roundsCards.length) {
-      throw new Error('Invalid rounds count');
+  fillRoundsData(roundsCards) {
+    if (!areArraysEqual(roundsCards, this.state.roundsCards)) {
+      _state.rounds = [];
     }
-    _state = {
-      ...defaultState,
-      roundsCount,
-      roundsCards,
-    };
+    _state.roundsCards = roundsCards;
     save();
   },
-  startGame(playersCount, players) {
-    if (playersCount !== players.length) {
-      throw new Error('Invalid players count');
+  fillPlayersData(players) {
+    if (!areArraysEqual(players, this.state.players)) {
+      _state.rounds = [];
     }
-    if (this.state.ready) {
-      throw new Error('Game already filled');
-    }
-    _state.playersCount = playersCount;
     _state.players = players;
-    _state.ready = true;
     save();
   },
   savePlayer(roundIndex, playerIndex, data) {
-    if (!this.state.ready) {
-      throw new Error('Game not filled');
+    if (!this.state.gameInProgress) {
+      throw new Error("Game is not in progress");
     }
-    if (_state.rounds[roundIndex] === undefined) {
+    if (_state.rounds[roundIndex] === void 0) {
       _state.rounds[roundIndex] = [];
     }
     _state.rounds[roundIndex][playerIndex] = data;
     save();
   },
-  markComplete() {
-    _state.complete = true;
+  newGame() {
+    if (!this.state.gameFinished) {
+      throw new Error("Game is not finished");
+    }
+    _state.gameFinished = false;
+    _state.gameInProgress = false;
+    _state.rounds = [];
     save();
   },
+  stopPreviousGame() {
+    if (this.state.gameFinished || this.state.gameInProgress) {
+      if (confirm(
+        "\u041E\u0431\u043D\u0430\u0440\u0443\u0436\u0435\u043D\u0430 \u043D\u0435\u0437\u0430\u0432\u0435\u0440\u0448\u0451\u043D\u043D\u0430\u044F \u0438\u0433\u0440\u0430. \u0425\u043E\u0442\u0438\u0442\u0435 \u043F\u0440\u043E\u0434\u043E\u043B\u0436\u0438\u0442\u044C \u0435\u0451? \u0415\u0441\u043B\u0438 \u043D\u0435 \u043F\u0440\u043E\u0434\u043E\u043B\u0436\u0438\u0442\u044C, \u0442\u0435\u043A\u0443\u0449\u0430\u044F \u0438\u0433\u0440\u0430 \u0431\u0443\u0434\u0435\u0442 \u0443\u0442\u0435\u0440\u044F\u043D\u0430."
+      )) {
+        location.href = getUrl("/game");
+        return;
+      }
+      console.debug("Stopping previous game");
+      _state.gameFinished = false;
+      _state.gameInProgress = false;
+      _state.rounds = [];
+      save();
+    }
+  },
+  startGame() {
+    _state.gameInProgress = true;
+    save();
+  },
+  markComplete() {
+    _state.gameFinished = true;
+    _state.gameInProgress = false;
+    save();
+  }
 };
+function areArraysEqual(a, b) {
+  return a.length === b.length && a.every((value, index) => value === b[index]);
+}
+function validateGameData(state) {
+  return typeof state === "object" && state !== null && "gameInProgress" in state && typeof state.gameInProgress === "boolean" && "players" in state && Array.isArray(state.players) && "roundsCards" in state && Array.isArray(state.roundsCards) && "rounds" in state && Array.isArray(state.rounds) && "gameFinished" in state && typeof state.gameFinished === "boolean";
+}

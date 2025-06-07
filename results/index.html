@@ -27,13 +27,24 @@
   <body>
     
     <header>
-      <h1>Результаты</h1>
+      <div class="header-logo-container">
+        <a href="/skull-king-scorer/" class="header-logo-link">
+          <img
+            class="header-logo"
+            src="/skull-king-scorer/assets/generated/icon-rounded-128.png"
+          />
+        </a>
+      </div>
+      <h1 id="header-title">Результаты</h1>
     </header>
     
     <main>
 <div class="vertical-stack">
   <div id="results"></div>
-  <a class="btn" href="/skull-king-scorer/">Главная</a>
+  <div class="vertical-stack">
+    <a class="btn" href="/skull-king-scorer/">Главная</a>
+    <a id="new-game" class="btn" href="/skull-king-scorer/new-game">Новая игра</a>
+  </div>
 </div>
 <link rel="stylesheet" href="/skull-king-scorer/styles/results.css" />
 <script src="/skull-king-scorer/scripts/results.js" type="module"></script>
