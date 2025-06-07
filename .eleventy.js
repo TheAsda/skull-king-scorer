@@ -1,6 +1,7 @@
 import { execSync } from 'node:child_process';
 import { writeFile } from 'node:fs/promises';
 import Image from '@11ty/eleventy-img';
+import esbuild from 'esbuild';
 
 await Image('./favicon-inkscape.svg', {
   widths: [32, 128, 192, 256, 512],
@@ -22,9 +23,11 @@ await Image('./favicon-inkscape.svg', {
         }" fill="white" />
       </svg>`
       );
-      return sharp.composite([
-        { input: roundedCorners, top: 0, left: 0, blend: 'dest-in' },
-      ]);
+      return sharp
+        .composite([
+          { input: roundedCorners, top: 0, left: 0, blend: 'dest-in' },
+        ])
+        .toBuffer();
     },
   },
   useCache: false,
@@ -37,6 +40,25 @@ export default (eleventyConfig) => {
   eleventyConfig.addWatchTarget('./src/**/*.css');
   eleventyConfig.addPassthroughCopy('./src/**/*.js');
   eleventyConfig.addWatchTarget('./src/**/*.js');
+
+  eleventyConfig.addTemplateFormats('ts');
+  eleventyConfig.addExtension('ts', {
+    outputFileExtension: 'js',
+    compile: async function (inputContent, inputPath) {
+      if (inputPath.endsWith('.ts')) {
+        eleventyConfig.logger.message(
+          `Transforming typescript file ${inputPath}`
+        );
+        let result = esbuild.transform(inputContent, {
+          loader: 'ts',
+          target: 'esnext',
+        });
+
+        return async () => (await result).code;
+      }
+      return inputContent;
+    },
+  });
 
   //#region nunjucks templates precompilation
   eleventyConfig.on('eleventy.before', async (config) => {

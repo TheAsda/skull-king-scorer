@@ -1,10 +1,11 @@
-import './nunjucks.js';
+import './nunjucks-init.js';
 import { GameData } from './game-data.js';
 import { calculateTotalScore } from './calculation.js';
+import { getUrl } from './url.js';
 
-const { players, complete } = GameData.state;
+const { players, gameFinished } = GameData.state;
 
-if (!complete) {
+if (!gameFinished) {
   location.href = getUrl('/game');
 }
 
@@ -21,7 +22,13 @@ results.sort((a, b) => b.score - a.score);
 const winnerScore = results[0].score;
 const winners = results.filter(({ score }) => score === winnerScore);
 
-document.querySelector('#results').innerHTML = nunjucks.render('results.njk', {
+document.querySelector('#results')!.innerHTML = nunjucks.render('results.njk', {
   winner: winners.map(({ name }) => name).join(', '),
   players: results,
 });
+
+document
+  .querySelector<HTMLAnchorElement>('#new-game')!
+  .addEventListener('click', () => {
+    GameData.newGame();
+  });

@@ -27,7 +27,15 @@
   <body>
     {% if header %}
     <header>
-      <h1>{{ header | safe }}</h1>
+      <div class="header-logo-container">
+        <a href="{{ '/' | url }}" class="header-logo-link">
+          <img
+            class="header-logo"
+            src="{{ '/assets/generated/icon-rounded-128.png' | url }}"
+          />
+        </a>
+      </div>
+      <h1 id="header-title">{{ header | safe }}</h1>
     </header>
     {% endif %}
     <main>{{ content | safe }}</main>

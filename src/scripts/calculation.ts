@@ -1,6 +1,6 @@
 import { GameData } from './game-data.js';
 
-export function getRoundCards(round) {
+export function getRoundCards(round: number) {
   const { roundsCards } = GameData.state;
   const cards = roundsCards[round];
   if (typeof cards !== 'number') {
@@ -9,7 +9,12 @@ export function getRoundCards(round) {
   return cards;
 }
 
-export function calculateScore(round, bet, take, bonuses = 0) {
+export function calculateScore(
+  round: number,
+  bet: number,
+  take: number,
+  bonuses = 0
+) {
   if (bet === 0) {
     const roundScore = 10 * getRoundCards(round);
     if (take === 0) {
@@ -24,7 +29,7 @@ export function calculateScore(round, bet, take, bonuses = 0) {
   }
 }
 
-export function getPreviousRoundsTotal(round, playerIndex) {
+export function getPreviousRoundsTotal(round: number, playerIndex: number) {
   const { rounds } = GameData.state;
   return rounds
     .slice(0, round)
@@ -41,7 +46,7 @@ export function getPreviousRoundsTotal(round, playerIndex) {
     );
 }
 
-export function calculateTotalScore(playerIndex) {
+export function calculateTotalScore(playerIndex: number) {
   const { rounds } = GameData.state;
   return rounds.reduce(
     (a, b, i) =>

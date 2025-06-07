@@ -22,8 +22,12 @@
     "dev": "npx @11ty/eleventy --serve"
   },
   "devDependencies": {
-    "@11ty/eleventy": "^3.0.0",
-    "@11ty/eleventy-img": "^5.0.0",
-    "undici-types": "^5.26.5"
+    "@11ty/eleventy": "^3.1.1",
+    "@11ty/eleventy-img": "^6.0.4",
+    "esbuild": "^0.25.5",
+    "undici-types": "^7.10.0"
+  },
+  "dependencies": {
+    "@types/nunjucks": "^3.2.6"
   }
 }

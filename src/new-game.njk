@@ -22,6 +22,8 @@ layout: "base.njk"
   <div class="vertical-stack">
     <h2>Пресеты</h2>
     <button type="button" class="preset-button" data-rounds="5" data-cards="{{ [5,5,5,5,5] | dump }}">5 по 5</button>
+    <button type="button" class="preset-button" data-rounds="10" data-cards="{{ [1,2,3,4,5,6,7,8,9,10] | dump }}">от 1 до 10</button>
+    <button type="button" class="preset-button" data-rounds="5" data-cards="{{ [6,7,8,9,10] | dump }}">6,7,8,9,10</button>
   </div>
 </form>
 <script type="module" src="{{ '/scripts/new-game.js' | url}}"></script>
