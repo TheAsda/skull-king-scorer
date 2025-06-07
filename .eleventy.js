@@ -57,8 +57,6 @@ export default (eleventyConfig) => {
       return inputContent;
     },
   });
-  // eleventyConfig.addPassthroughCopy('./src/**/*.ts');
-  // eleventyConfig.addWatchTarget('./src/**/*.ts');
 
   //#region nunjucks templates precompilation
   eleventyConfig.on('eleventy.before', async (config) => {
